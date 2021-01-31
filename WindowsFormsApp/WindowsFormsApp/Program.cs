@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -33,13 +34,22 @@ namespace WindowsFormsApp
                 Icon = Icon.FromHandle(Resources.Sloth.GetHicon()),
                 ContextMenu = new ContextMenu(new MenuItem[] {
                 new MenuItem("Exit", Exit),
-                new MenuItem("Load DoNet Dll", LoadDll)
+                new MenuItem("Load Native Dll", LoadNativeDll),
+                new MenuItem("Load DotNet Dll", LoadDotNetDll)
             }),
                 Visible = true
             };
         }
 
-        void LoadDll(object sender, EventArgs e)
+        [DllImport("user32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        private static extern int MessageBox(IntPtr hWnd, string lpText, string lpCaption, uint uType);
+
+        void LoadNativeDll(object sender, EventArgs e)
+        {
+            MessageBox(IntPtr.Zero, "hello from user32.dll MessageBox()", "Attention!", 0);
+        }
+
+        void LoadDotNetDll(object sender, EventArgs e)
         {
             try
             {
