@@ -1,4 +1,5 @@
 using Microsoft.ReactNative;
+using Microsoft.ReactNative.Managed;
 
 namespace RNWApp
 {
@@ -7,6 +8,7 @@ namespace RNWApp
         public void CreatePackage(IReactPackageBuilder packageBuilder)
         {
             CreatePackageImplementation(packageBuilder);
+            packageBuilder.AddAttributedModules();
         }
 
         /// <summary>

@@ -125,6 +125,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FullTrustAppRunner.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -162,6 +163,11 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.9</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="WindowsDesktop, Version=10.0.17763.0">
+      <Name>Windows Desktop Extensions for the UWP</Name>
+    </SDKReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '16.0' ">
     <VisualStudioVersion>16.0</VisualStudioVersion>

@@ -8,14 +8,16 @@
  * @format
  */
 
-import React from 'react';
+import React, { useCallback } from 'react';
 import {
+  Button,
   SafeAreaView,
   StyleSheet,
   ScrollView,
   View,
   Text,
   StatusBar,
+  NativeModules,
 } from 'react-native';
 
 import {
@@ -29,8 +31,14 @@ import {
 declare const global: {HermesInternal: null | {}};
 
 const App = () => {
+  const launchExe = useCallback(() => {
+    NativeModules.FullTrustAppRunner.Execute();
+  }, []);
+
   return (
     <>
+      <Button onPress={launchExe} title="Click Me" />
+
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView

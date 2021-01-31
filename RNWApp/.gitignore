@@ -61,3 +61,12 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
+
+# Visual Studio
+*.binlog
+# Visual Studio
+*.binlog
+# Visual Studio
+*.binlog
+# Visual Studio
+*.binlog
